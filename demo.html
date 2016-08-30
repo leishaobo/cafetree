@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<title>cafe form demo</title>
+		<link rel="stylesheet" href="./plugin/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./plugin/jquery-ui/css/custom-theme/jquery-ui-1.10.0.custom.css">
+		<link rel="stylesheet" href="./plugin/bootstrap-treeview/dist/bootstrap-treeview.min.css">
+		
+		<script src="./plugin/jquery/jquery-1.10.2.js"></script>
+		<script src="./plugin/bootstrap/js/bootstrap.min.js"></script>
+		<script src="./plugin/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
+		<script src="./plugin/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+		<script src="./cafe-tree.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var defaultData = [{
+				                     text: 'Parent 1',
+				                     tags: ['4'],
+				                     nodes: [
+				                       {
+				                         text: 'Child 1',
+				                         href: '1',
+				                         tags: ['2'],
+				                         nodes: [
+				                           {
+				                             text: 'Grandchild 1',
+				                             href: '2',
+				                             tags: ['0']
+				                           },
+				                           {
+				                             text: 'Grandchild 2',
+				                             href: '3',
+				                             tags: ['0']
+				                           }
+				                         ]
+				                       },
+				                       {
+				                         text: 'Child 2',
+				                         href: '4',
+				                         tags: ['0']
+				                       }
+				                     ]
+				                   },
+				                   {
+				                     text: 'Parent 2',
+				                     href: '5',
+				                     tags: ['0']
+				                   },
+				                   {
+				                     text: 'Parent 3',
+				                     href: '6',
+				                      tags: ['0']
+				                   },
+				                   {
+				                     text: 'Parent 4',
+				                     href: '7',
+				                     tags: ['0']
+				                   },
+				                   {
+				                     text: 'Parent 5',
+				                     href: '8'  ,
+				                     tags: ['0']
+				                   }
+				                 ];
+				$(".cafetree").tree({data:defaultData,isSingleCheck:true});
+				$(".mybtn").click(function(){
+					var ids=$(".cafetree").tree("getCheckedId");
+					$(".content").text(ids);
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="dialog" >
+					<div class="container-fluid">
+				         <div class="row">
+					    	<div class="cafetree"></div>
+						</div>
+						
+						 <div class="row">
+					    	<div class="col-xs-12"><button class="btn btn-primary mybtn">获取所有select href</button></div>
+					    	<div class="col-xs-12 content"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
