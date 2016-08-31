@@ -20,11 +20,17 @@
 				                         text: 'Child 1',
 				                         href: '1',
 				                         tags: ['2'],
+										 state:{
+												checked:true
+											 },
 				                         nodes: [
 				                           {
 				                             text: 'Grandchild 1',
 				                             href: '2',
-				                             tags: ['0']
+				                             tags: ['0'],
+											 state:{
+												checked:true
+											 }
 				                           },
 				                           {
 				                             text: 'Grandchild 2',
@@ -61,7 +67,7 @@
 				                     tags: ['0']
 				                   }
 				                 ];
-				$(".cafetree").tree({data:defaultData,isSingleCheck:true});
+				$(".cafetree").tree({data:defaultData,isSingleCheck:false});
 				$(".mybtn").click(function(){
 					var ids=$(".cafetree").tree("getCheckedId");
 					$(".content").text(ids);

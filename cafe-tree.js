@@ -7,6 +7,22 @@
 			isSingleCheck:false
 	};
 	
+	var initIds=function(data){
+		var ids=[];
+		var getCheckedIdFromNode=function(data){
+			for(var i in data){
+				var node=data[i];
+				if(node.state && node.state.checked && node.href){
+					ids.push(parseInt(node.href));
+				}
+				if(node.nodes && node.nodes.length > 0){
+					getCheckedIdFromNode(node.nodes);
+				}
+			}
+		}
+		getCheckedIdFromNode(data);
+		return ids;
+	};
 	$.widget("cafe.tree",{
 		 options:{isSingleCheck:false,ids:[]},
 		_create: function() {
@@ -18,6 +34,7 @@
 	    },
 	    _update: function() {
 	    	 var $this=this;
+			 this.options.ids=initIds(this.options.data);
 		     this.element.treeview({
 		          data: this.options.data,
 		          showIcon: true,
