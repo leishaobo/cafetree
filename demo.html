@@ -18,11 +18,8 @@
 				                     nodes: [
 				                       {
 				                         text: 'Child 1',
-				                         href: '1',
+				                         href: '10',
 				                         tags: ['2'],
-										 state:{
-												checked:true
-											 },
 				                         nodes: [
 				                           {
 				                             text: 'Grandchild 1',
@@ -35,7 +32,10 @@
 				                           {
 				                             text: 'Grandchild 2',
 				                             href: '3',
-				                             tags: ['0']
+				                             tags: ['0'],
+				                             state:{
+													checked:true
+												 }
 				                           }
 				                         ]
 				                       },
@@ -86,7 +86,7 @@
 						</div>
 						
 						 <div class="row">
-					    	<div class="col-xs-12"><button class="btn btn-primary mybtn">获取所有select href</button></div>
+					    	<div class="col-xs-12"><button class="btn btn-primary mybtn"> 获取所有select href</button></div>
 					    	<div class="col-xs-12 content"></div>
 						</div>
 					</div>
